@@ -1,0 +1,47 @@
+{
+    "name": "any",
+    "description": "Simple selfbot for mass discord operations",
+    "version": "1.0.0",
+    "exports": null,
+    "type": "module",
+    "scripts": {
+        "dev": "dotenvx run --env=\"NODE_ENV=development\" -- tsx watch src/index.ts",
+        "start": "dotenvx run --env=\"NODE_ENV=production\" -- tsx src/index.ts",
+        "format": "prettier . --write --cache --ignore-unknown",
+        "format:check": "prettier . --check --ignore-unknown",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/k4itrun/any.git"
+    },
+    "keywords": [],
+    "author": {
+        "name": "k4itrun",
+        "email": "billoneta@proto.me"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/k4itrun/any/issues"
+    },
+    "homepage": "https://github.com/k4itrun/any#readme",
+    "dependencies": {
+        "@dotenvx/dotenvx": "^1.41.0",
+        "discord-api-types": "^0.38.1",
+        "ws": "^8.18.1"
+    },
+    "devDependencies": {
+        "@k4i/config": "^1.0.1",
+        "@next/eslint-plugin-next": "^15.3.1",
+        "@types/ws": "^8.18.1",
+        "eslint": "^9.25.1",
+        "prettier": "^3.5.3"
+    },
+    "packageManager": "pnpm@10.9.0",
+    "pnpm": {
+        "onlyBuiltDependencies": [
+            "unrs-resolver"
+        ]
+    }
+}
