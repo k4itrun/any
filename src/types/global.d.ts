@@ -1,5 +1,5 @@
 /* eslint-disable no-var, no-use-before-define */
-import type Client from "@/client/Client";
+import type Client from '@/client/Client';
 
 declare global {
  var commands: Map<string, Command>;

@@ -1,6 +1,6 @@
-import path from "node:path";
-import fs from "node:fs/promises";
-import url from "node:url";
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import url from 'node:url';
 
 const globalFilePath = (path: string): string => url.pathToFileURL(path)?.href || path;
 
