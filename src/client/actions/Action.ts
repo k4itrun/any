@@ -1,4 +1,5 @@
-import type Client from "@/client/Client";
+import type Client from '@/client/Client';
+
 class GenericAction {
  readonly client: Client;
  constructor(client: Client) {

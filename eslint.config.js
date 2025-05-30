@@ -1,6 +1,6 @@
 // @ts-check
-import eslintConfig from "@k4i/config/eslint-config";
-import { defineConfig } from "eslint/config";
+import eslintConfig from '@billoneta/config/eslint-config';
+import { defineConfig } from 'eslint/config';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default defineConfig([
@@ -9,14 +9,14 @@ export default defineConfig([
  eslintConfig.typescript,
  eslintConfig.prettier,
  {
-  name: "Override",
+  name: 'Override',
   rules: {
-   camelcase: "off",
-   "require-await": "off",
-   "import-x/order": "off",
-   "prefer-destructuring": "off",
-   "no-empty": "off",
-   "no-undef": "off",
+   camelcase: 'off',
+   'require-await': 'off',
+   'import-x/order': 'off',
+   'prefer-destructuring': 'off',
+   'no-empty': 'off',
+   'no-undef': 'off',
   },
  },
 ]);

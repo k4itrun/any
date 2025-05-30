@@ -1,14 +1,13 @@
-import WebSocket from "ws";
-import { EventEmitter } from "node:events";
-import { GatewayDispatchEvents, GatewayOpcodes } from "discord-api-types/v10";
-import type { GatewayReceivePayload, GatewaySendPayload, GatewayHelloData } from "discord-api-types/v10";
+import { EventEmitter } from 'node:events';
+import { GatewayDispatchEvents, GatewayOpcodes, type GatewayHelloData, type GatewayReceivePayload, type GatewaySendPayload } from 'discord-api-types/v10';
+import WebSocket from 'ws';
 
 const DEFAULT_RECONNECT_DELAY = 5000;
 const MAX_RECONNECT_ATTEMPTS = 5;
 const IDENTIFY_PROPERTIES = {
  os: process.platform,
- browser: "discord.js",
- device: "discord.js",
+ browser: 'discord.js',
+ device: 'discord.js',
 };
 
 class WebSocketManager extends EventEmitter {
@@ -62,7 +61,7 @@ class WebSocketManager extends EventEmitter {
  }
 
  public async identify(): Promise<void> {
-  if (!this._token) throw new Error("Token not set");
+  if (!this._token) throw new Error('Token not set');
   try {
    await this._send({
     op: GatewayOpcodes.Identify,
@@ -74,13 +73,13 @@ class WebSocketManager extends EventEmitter {
    });
   } catch (error) {
    this._debug(`Identify failed: ${error}`);
-   throw new Error("Invalid token or connection error");
+   throw new Error('Invalid token or connection error');
   }
  }
 
  public async resume(): Promise<void> {
   if (!this._token || !this.sessionId || !this.lastSequence) {
-   this._debug("Cannot resume - missing token, sessionId or sequence");
+   this._debug('Cannot resume - missing token, sessionId or sequence');
    return this.identify();
   }
 
@@ -97,7 +96,7 @@ class WebSocketManager extends EventEmitter {
  }
 
  public setToken(token: string): void {
-  if (this._token) throw new Error("Token has already been set");
+  if (this._token) throw new Error('Token has already been set');
   this._token = token;
  }
 
@@ -112,7 +111,7 @@ class WebSocketManager extends EventEmitter {
  }
 
  private async _internalConnect(): Promise<void> {
-  this.ws = new WebSocket("wss://gateway.discord.gg/?v=10&encoding=json");
+  this.ws = new WebSocket('wss://gateway.discord.gg/?v=10&encoding=json');
   this._setupEventListeners();
  }
 
@@ -120,7 +119,7 @@ class WebSocketManager extends EventEmitter {
   if (!this.ws) return;
 
   this.ws.onopen = () => {
-   this._debug("WebSocket connection opened");
+   this._debug('WebSocket connection opened');
    this.acknowledged = false;
   };
 
@@ -128,7 +127,7 @@ class WebSocketManager extends EventEmitter {
    try {
     await this._handleMessage(event.data);
    } catch (error) {
-    this.emit("error", error instanceof Error ? error.message : String(error));
+    this.emit('error', error instanceof Error ? error.message : String(error));
    }
   };
 
@@ -137,7 +136,7 @@ class WebSocketManager extends EventEmitter {
   };
 
   this.ws.onerror = (error) => {
-   this.emit("error", error instanceof Error ? error.message : String(error));
+   this.emit('error', error instanceof Error ? error.message : String(error));
   };
  }
 
@@ -152,7 +151,7 @@ class WebSocketManager extends EventEmitter {
 
    case GatewayOpcodes.HeartbeatAck:
     this.acknowledged = true;
-    this._debug("Received heartbeat ACK");
+    this._debug('Received heartbeat ACK');
     break;
 
    case GatewayOpcodes.Dispatch:
@@ -185,24 +184,24 @@ class WebSocketManager extends EventEmitter {
    case GatewayDispatchEvents.Ready:
     this.sessionId = payload.d.session_id;
     this.connectionResolve?.();
-    this.emit("ready", payload.d);
+    this.emit('ready', payload.d);
     this._debug(`Logged in as ${payload.d.user.username} (${payload.d.user.id})`);
     this._debug(`\x1b[32m${JSON.stringify(payload.d.user)}\x1b[0m`);
     break;
 
    case GatewayDispatchEvents.Resumed:
-    this._debug("Session resumed successfully");
+    this._debug('Session resumed successfully');
     this.connectionResolve?.();
-    this.emit("resumed");
+    this.emit('resumed');
     break;
   }
 
-  this.emit("dispatch", payload);
+  this.emit('dispatch', payload);
   this._debug(`Event ${payload.t?.toLocaleLowerCase()} received`);
  }
 
  private async _handleReconnect(): Promise<void> {
-  this._debug("Received reconnect request from Discord");
+  this._debug('Received reconnect request from Discord');
   await this.destroy();
   await this.connect();
  }
@@ -224,14 +223,14 @@ class WebSocketManager extends EventEmitter {
   this._cleanupHeartbeat();
 
   if (event.code === 4004) {
-   this.connectionReject?.(new Error("Invalid token provided"));
+   this.connectionReject?.(new Error('Invalid token provided'));
    return;
   }
 
   if (this.reconnectAttempts < MAX_RECONNECT_ATTEMPTS) {
    this._scheduleReconnect();
   } else {
-   this.connectionReject?.(new Error("Max reconnect attempts reached"));
+   this.connectionReject?.(new Error('Max reconnect attempts reached'));
   }
  }
 
@@ -262,7 +261,7 @@ class WebSocketManager extends EventEmitter {
 
  public async heartbeat(requested = false): Promise<void> {
   if (!requested && !this.acknowledged) {
-   this._debug("Heartbeat not acknowledged, terminating connection");
+   this._debug('Heartbeat not acknowledged, terminating connection');
    return this.destroy();
   }
 
@@ -287,7 +286,7 @@ class WebSocketManager extends EventEmitter {
 
  private async _send(payload: GatewaySendPayload): Promise<void> {
   if (!this.ws || this.ws.readyState !== WebSocket.OPEN) {
-   throw new Error("WebSocket is not connected");
+   throw new Error('WebSocket is not connected');
   }
 
   return new Promise((resolve, reject) => {
@@ -303,7 +302,7 @@ class WebSocketManager extends EventEmitter {
  }
 
  public _debug(message: string): void {
-  this.emit("debug", message, 0);
+  this.emit('debug', message, 0);
  }
 }
 

@@ -1,5 +1,5 @@
 /* eslint-disable no-var, no-use-before-define */
-import type Client from "@/client/Client";
+import type Client from '@/client/Client';
 
 declare global {
  var commands: Map<string, Command>;
@@ -18,10 +18,14 @@ declare global {
   ws?: WebSocketManagerOptions;
  }
 
+ interface Message {
+  [x: string]: unknown;
+ }
+
  interface Command {
   name?: string;
   cooldown?: number;
-  run: (client: Client, message: Record<string, unknown>, args: unknown[]) => Promise<void>;
+  run: (client: Client, message: Message, args: string[]) => Promise<void>;
  }
 }
 

@@ -1,7 +1,7 @@
-import type Client from "@/client/Client";
-import MessageCreateAction from "@/client/actions/MessageCreate";
+import type Client from '@/client/Client';
+import MessageCreateAction from '@/client/actions/MessageCreate';
 
-const INJECTED_CHANNEL = Symbol("any.actions.injectedChannel");
+const INJECTED_CHANNEL = Symbol('any.actions.injectedChannel');
 
 class ActionsManager {
  readonly client: Client;
@@ -14,8 +14,8 @@ class ActionsManager {
  }
 
  register<T extends ActionInstance>(Action: T): void {
-  if (typeof Action !== "function" || !("prototype" in Action)) throw new Error(`Provided Action must be a class constructor, received: ${typeof Action}`);
-  const toRegister = Action.name.replace(/Action$/, "") as ActionProperty<T>;
+  if (typeof Action !== 'function' || !('prototype' in Action)) throw new Error(`Provided Action must be a class constructor, received: ${typeof Action}`);
+  const toRegister = Action.name.replace(/Action$/, '') as ActionProperty<T>;
   (this as unknown as Record<string, InstanceType<T>>)[toRegister] = new Action(this.client) as InstanceType<T>;
  }
 }

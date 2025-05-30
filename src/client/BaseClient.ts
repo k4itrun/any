@@ -1,11 +1,12 @@
-import EventEmitter from "node:events";
+import EventEmitter from 'node:events';
+
 class BaseClient extends EventEmitter {
  public options: BaseClientOptions;
 
  constructor(options: BaseClientOptions = {}) {
   super({ captureRejections: true });
-  if (typeof options !== "object" || options === null) {
-   throw new Error("Invalid options! Options must be a non-null object.");
+  if (typeof options !== 'object' || options === null) {
+   throw new Error('Invalid options! Options must be a non-null object.');
   }
   this.options = options;
  }

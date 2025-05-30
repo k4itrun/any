@@ -1,6 +1,7 @@
-import path from "node:path";
-import fs from "node:fs/promises";
-import url from "node:url";
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import url from 'node:url';
+import logger from '@billoneta/utils/logger';
 
 const globalFilePath = (path: string): string => url.pathToFileURL(path)?.href || path;
 
@@ -14,13 +15,13 @@ export default async (commands: Map<string, Command>) => {
     if (!_command.name) _command.name = path.parse(cmd).name;
     commands.set(_command.name, _command);
    } catch (err) {
-    console.error(`[Command Error]: ${cmd}`, err);
+    logger.error(`[Command Error]: ${cmd}`, err);
    }
   }
   for (const cmd of [...commands.keys()]) {
-   console.log(`[Command Loaded]: ${cmd}`);
+   logger.log(`[Command Loaded]: ${cmd}`);
   }
  } catch (err) {
-  console.error(`[Loader Error]:`, err);
+  logger.error(`[Loader Error]:`, err);
  }
 };
