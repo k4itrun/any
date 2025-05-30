@@ -4,6 +4,7 @@ import { defineConfig } from 'eslint/config';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default defineConfig([
+ // prettier
  eslintConfig.base,
  eslintConfig.node,
  eslintConfig.typescript,

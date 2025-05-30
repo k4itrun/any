@@ -1,6 +1,7 @@
 # Root-level files
 package*
 pnpm*
+<<<<<<< HEAD
 
 # Node.js
 node_modules/
@@ -16,6 +17,26 @@ coverage/
 .vscode/
 .idea/
 
+=======
+turbo*
+
+# Node.js
+node_modules/**
+
+# Build output
+dist/**
+build/**
+.next/**
+
+# Test coverage
+coverage/**
+
+# Editor/IDE settings
+.git/**
+.vscode/**
+.idea/**
+
+>>>>>>> d536d389dafe983a3846684eb7efb772c7e0bcbf
 # Minified files
 *.min.*
 

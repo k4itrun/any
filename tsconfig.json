@@ -1,6 +1,7 @@
 {
  "$schema": "https://json.schemastore.org/tsconfig",
  "compilerOptions": {
+<<<<<<< HEAD
   "target": "ES2022",
   "lib": ["ES2022"],
   "module": "Preserve",
@@ -25,4 +26,23 @@
   }
  },
  "exclude": ["node_modules"]
+=======
+  "target": "ESNext",
+  "lib": ["ESNext"],
+  "module": "ESNext",
+  "moduleResolution": "Bundler",
+  "noUnusedLocals": true,
+  "noUnusedParameters": true,
+  "resolveJsonModule": true,
+  "strict": true,
+  "strictNullChecks": true,
+  "esModuleInterop": true,
+  "skipDefaultLibCheck": true,
+  "skipLibCheck": true,
+  "baseUrl": "./",
+  "paths": {
+   "@/*": ["./src/*"]
+  }
+ }
+>>>>>>> d536d389dafe983a3846684eb7efb772c7e0bcbf
 }
