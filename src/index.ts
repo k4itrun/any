@@ -1,9 +1,6 @@
 import path from 'node:path';
 import url from 'node:url';
-<<<<<<< HEAD
 import logger from '@billoneta/utils/logger';
-=======
->>>>>>> d536d389dafe983a3846684eb7efb772c7e0bcbf
 import { GatewayIntentBits } from 'discord-api-types/v10';
 import Client from '@/client/Client';
 import loadCommands from '@/loaders/commands';
@@ -37,11 +34,7 @@ client.on('messageCreate', async (message) => {
 });
 
 client.on('ready', (client) => {
-<<<<<<< HEAD
  logger.log(`[Client]: Logged in as ${client.user.username} (${client.user.id})`);
-=======
- console.log(`[Client]: Logged in as ${client.user.username} (${client.user.id})`);
->>>>>>> d536d389dafe983a3846684eb7efb772c7e0bcbf
 });
 
 client.login();

@@ -19,11 +19,7 @@
     "keywords": [],
     "author": {
         "name": "k4itrun",
-<<<<<<< HEAD
         "email": "tsx@billoneta.xyz"
-=======
-        "email": "tsx@bilooneta.xyz"
->>>>>>> d536d389dafe983a3846684eb7efb772c7e0bcbf
     },
     "license": "MIT",
     "bugs": {
@@ -31,30 +27,22 @@
     },
     "homepage": "https://github.com/k4itrun/any#readme",
     "dependencies": {
-<<<<<<< HEAD
         "@billoneta/utils": "^1.0.6",
-        "@dotenvx/dotenvx": "^1.42.0",
-        "discord-api-types": "^0.38.2",
-        "ws": "^8.18.1"
-=======
         "@dotenvx/dotenvx": "^1.44.1",
         "discord-api-types": "^0.38.8",
         "ws": "^8.18.2"
->>>>>>> d536d389dafe983a3846684eb7efb772c7e0bcbf
     },
     "devDependencies": {
         "@billoneta/config": "^1.0.6",
         "@billoneta/gitmoji": "^1.0.6",
-<<<<<<< HEAD
-        "@next/eslint-plugin-next": "^15.3.1",
-=======
->>>>>>> d536d389dafe983a3846684eb7efb772c7e0bcbf
         "@types/ws": "^8.18.1",
         "eslint": "^9.27.0",
         "prettier": "^3.5.3"
     },
     "packageManager": "pnpm@10.11.0",
     "pnpm": {
-        "onlyBuiltDependencies": []
+        "onlyBuiltDependencies": [
+            "unrs-resolver"
+        ]
     }
 }

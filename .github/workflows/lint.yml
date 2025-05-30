@@ -29,8 +29,4 @@ jobs:
      run: pnpm install
 
    - name: Run ESLint
-<<<<<<< HEAD
      run: pnpm lint:fix
-=======
-     run: pnpm lint
->>>>>>> d536d389dafe983a3846684eb7efb772c7e0bcbf
