@@ -14,7 +14,7 @@ const client = new Client({
 });
 
 global.commands = new Map<string, Command>();
-await loadCommands(global.commands);
+await loadCommands();
 
 client.on('messageCreate', async (message) => {
  if (!message.content || message.author.bot) return;

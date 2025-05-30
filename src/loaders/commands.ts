@@ -5,15 +5,15 @@ import logger from '@billoneta/utils/logger';
 
 const globalFilePath = (path: string): string => url.pathToFileURL(path)?.href || path;
 
-export default async (commands: Map<string, Command>) => {
+export default async () => {
  try {
   const cmds = await fs.readdir(`${process.cwd()}/commands`);
   for (const cmd of cmds) {
    try {
-    const { default: _command } = (await import(globalFilePath(`${process.cwd()}/commands/${cmd}`))) as { default: Command };
+    const { default: command } = (await import(globalFilePath(`${process.cwd()}/commands/${cmd}`))) as { default: Command };
 
-    if (!_command.name) _command.name = path.parse(cmd).name;
-    commands.set(_command.name, _command);
+    if (!command.name) command.name = path.parse(cmd).name;
+    global.commands.set(command.name, command);
    } catch (err) {
     logger.error(`[Command Error]: ${cmd}`, err);
    }
