@@ -40,13 +40,9 @@ build/
 
 # TypeScript cache and types https://www.typescriptlang.org/tsconfig#incremental
 next*.d.ts
-<<<<<<< HEAD
 !next-compose-plugins.d.ts
 *.tsbuildinfo
 *.type-check-cache.json
-=======
-.husky/
->>>>>>> d536d389dafe983a3846684eb7efb772c7e0bcbf
 
 # Git hooks https://typicode.github.io/husky/#/
 .husky/
@@ -117,15 +113,7 @@ prisma/*.sqlite3
 # Docker volumes (for named volumes with db data) https://docs.docker.com/storage/volumes/
 volumes/
 
-<<<<<<< HEAD
 # Custom ignored files
 changelog*
 storage*
 tokens*
-=======
-# Custom
-*[Cc]ommit*.md
-*[Cc]hange*.md
-**/\[id\]/
-**/\[db\]/
->>>>>>> d536d389dafe983a3846684eb7efb772c7e0bcbf
