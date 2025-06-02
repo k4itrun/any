@@ -16,7 +16,7 @@ importers:
         version: 1.44.1
       discord-api-types:
         specifier: ^0.38.8
-        version: 0.38.9
+        version: 0.38.10
       ws:
         specifier: ^8.18.2
         version: 8.18.2
@@ -937,8 +937,8 @@ packages:
     resolution: {integrity: sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==}
     engines: {node: '>=8'}
 
-  discord-api-types@0.38.9:
-    resolution: {integrity: sha512-LaVbou3fYrRbploSUNAWnyXBmUmVfH4FrQ8W2AVA7f/hUSPcUtkc1bDjELt2wrbIDBbSI4uMo/d/HxeIz7JvoQ==}
+  discord-api-types@0.38.10:
+    resolution: {integrity: sha512-6F02RttmlDoTpFEeOlF1Z9lmNDUFum4ewBPFFjkD6mIlnd+NJ6oze/dllPdp8dpNvFuLHyEfVy+UPZ1s+IWmmA==}
 
   dot-prop@5.3.0:
     resolution: {integrity: sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==}
@@ -3931,7 +3931,7 @@ snapshots:
     dependencies:
       path-type: 4.0.0
 
-  discord-api-types@0.38.9: {}
+  discord-api-types@0.38.10: {}
 
   dot-prop@5.3.0:
     dependencies:
